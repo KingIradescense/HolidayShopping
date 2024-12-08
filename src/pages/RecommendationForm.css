@@ -77,3 +77,23 @@ span {
   margin-top: 10px;
   font-weight: bold;
 }
+
+/* Custom styles for the Bootstrap dropdown */
+.dropdown-toggle {
+  background-color: white !important; /* Set background color to white */
+  color: black !important;           /* Set text color to black */
+  border: 1px solid #ccc;           /* Optional: Add a border to match the background */
+}
+
+.dropdown-menu {
+  background-color: white !important; /* Set dropdown background to white */
+}
+
+.dropdown-item {
+  color: black !important; /* Set text color of items inside the dropdown to black */
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa !important; /* Optional: Change hover effect */
+  color: black !important;              /* Ensure the text stays black on hover */
+}

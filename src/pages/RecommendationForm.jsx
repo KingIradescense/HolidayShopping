@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { Dropdown } from "react-bootstrap"; // Importing Bootstrap Dropdown
+import { useNavigate } from "react-router-dom"; // Importing useNavigate
 import "./RecommendationForm.css";
 
 function RecommendationForm() {
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
   const [formData, setFormData] = useState({
     age: "",
     gender: "",
@@ -25,9 +29,16 @@ function RecommendationForm() {
     setFormData({ ...formData, interests: newInterests });
   };
 
+  const handleDropdownSelect = (value) => {
+    setFormData({ ...formData, age: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData); // For testing
+
+    // After the form is submitted, navigate to the results page and pass formData as state
+    navigate("/results", { state: { formData } });
   };
 
   return (
@@ -37,12 +48,22 @@ function RecommendationForm() {
         <div className="form-section">
           <label>
             Age:
-            <select name="age" value={formData.age} onChange={handleInputChange}>
-              <option value="">Select Age</option>
-              <option value="child">Child</option>
-              <option value="teen">Teen</option>
-              <option value="adult">Adult</option>
-            </select>
+            <Dropdown>
+              <Dropdown.Toggle variant="secondary" id="dropdown-age">
+                {formData.age || "Select Age"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => handleDropdownSelect("child")}>
+                  Child
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => handleDropdownSelect("teen")}>
+                  Teen
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => handleDropdownSelect("adult")}>
+                  Adult
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </label>
         </div>
 
