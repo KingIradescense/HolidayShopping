@@ -1,0 +1,85 @@
+.results-page {
+    padding: 20px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .results-page h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .gift-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .gift-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gift-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .gift-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .gift-card p {
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .actions button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .actions button:hover {
+    background-color: #2980b9;
+  }  
+
+  /* Add styles for the Wishlist Button */
+.wishlist-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .wishlist-button:hover {
+    background-color: #2980b9;
+  }
+  
