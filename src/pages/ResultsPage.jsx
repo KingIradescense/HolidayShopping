@@ -32,17 +32,24 @@ function ResultsPage() {
   const formData = location.state?.formData || { budget: Infinity };
 
   const [filteredGifts, setFilteredGifts] = useState([]);
+  
+  // Fetch wishlist from localStorage when the component mounts
+  const [wishlist, setWishlist] = useState(JSON.parse(localStorage.getItem("wishlist")) || []);
 
   useEffect(() => {
     const matchingGifts = allGifts.filter((gift) => gift.price <= formData.budget);
     setFilteredGifts(matchingGifts);
   }, [formData.budget]);
 
+  // Add gift to wishlist and update localStorage
   const addToWishlist = (id) => {
     const giftToAdd = allGifts.find((gift) => gift.id === id);
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    storedWishlist.push(giftToAdd);
-    localStorage.setItem("wishlist", JSON.stringify(storedWishlist));
+    const updatedWishlist = [...wishlist, giftToAdd];
+
+    // Update the state and localStorage
+    setWishlist(updatedWishlist);
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+
     console.log(`Gift with ID ${id} added to wishlist`);
   };
 
