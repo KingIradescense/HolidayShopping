@@ -3,29 +3,32 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./ResultsPage.css";
 
 function ResultsPage() {
-  const allGifts = [
-    {
-      id: 1,
-      name: "Wireless Headphones",
-      price: 99,
-      description: "Noise-cancelling headphones with 40-hour battery life.",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      name: "Coffee Maker",
-      price: 75,
-      description: "Compact coffee machine with programmable timer.",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      name: "Fitness Tracker",
-      price: 50,
-      description: "Tracks steps, heart rate, and calories burned.",
-      image: "https://via.placeholder.com/150",
-    },
-  ];
+  const [allGifts, setAllGifts] = useState([]);
+
+useEffect(() => {
+  const fetchGiftsFromJson = async () => {
+    try {
+      const response = await fetch("valid_records.json");
+      const data = await response.json();
+
+      // Format data to match the structure expected by allGifts
+      const formattedData = data.slice(0, 2000).map((item, index) => ({
+        id: index + 1,
+        name: item.Name || "Unknown Gift",
+        price: parseFloat(item.Price.replace("$", "")) || 0,
+        description: "", // Description not available in JSON
+        image: item["Image URL"] || "https://via.placeholder.com/150",
+      }));
+
+      setAllGifts(formattedData);
+    } catch (error) {
+      console.error("Error loading JSON data:", error);
+    }
+  };
+
+  fetchGiftsFromJson();
+}, []);
+
 
   const location = useLocation();
   const navigate = useNavigate();
