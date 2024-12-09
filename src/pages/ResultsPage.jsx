@@ -93,31 +93,31 @@ function readRecords() {
 
 function ResultsPage() {
   //? if readRecords() works as intended:
-  //? const allGifts = readRecords();
+  const allGifts = readRecords();
 
-  const allGifts = [
-    {
-      id: 1,
-      name: "Wireless Headphones",
-      price: 99,
-      description: "Noise-cancelling headphones with 40-hour battery life.",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      name: "Coffee Maker",
-      price: 75,
-      description: "Compact coffee machine with programmable timer.",
-      image: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      name: "Fitness Tracker",
-      price: 50,
-      description: "Tracks steps, heart rate, and calories burned.",
-      image: "https://via.placeholder.com/150",
-    },
-  ];
+  // const allGifts = [
+  //   {
+  //     id: 1,
+  //     name: "Wireless Headphones",
+  //     price: 99,
+  //     description: "Noise-cancelling headphones with 40-hour battery life.",
+  //     image: "https://via.placeholder.com/150",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Coffee Maker",
+  //     price: 75,
+  //     description: "Compact coffee machine with programmable timer.",
+  //     image: "https://via.placeholder.com/150",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Fitness Tracker",
+  //     price: 50,
+  //     description: "Tracks steps, heart rate, and calories burned.",
+  //     image: "https://via.placeholder.com/150",
+  //   },
+  // ];
 
   const location = useLocation();
   const navigate = useNavigate();
