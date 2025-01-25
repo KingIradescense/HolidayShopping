@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+# GiftWise
+
+GiftWise is a recommender system for holiday gift shopping. It scrapes product information from major retailers and shows the user results through a search function.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
